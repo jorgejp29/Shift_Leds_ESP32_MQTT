@@ -1,0 +1,353 @@
+[
+    {
+        "id": "1a8b0c1a9cd45fcc",
+        "type": "tab",
+        "label": "Shift_LEDS",
+        "disabled": false,
+        "info": ""
+    },
+    {
+        "id": "d390c6508b51ada2",
+        "type": "ui_switch",
+        "z": "1a8b0c1a9cd45fcc",
+        "name": "",
+        "label": "switch",
+        "tooltip": "",
+        "group": "f370cfb7.9f1c18",
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "passthru": true,
+        "decouple": "false",
+        "topic": "topic",
+        "topicType": "msg",
+        "style": "",
+        "onvalue": "true",
+        "onvalueType": "bool",
+        "onicon": "",
+        "oncolor": "",
+        "offvalue": "false",
+        "offvalueType": "bool",
+        "officon": "",
+        "offcolor": "",
+        "animate": false,
+        "x": 110,
+        "y": 240,
+        "wires": [
+            [
+                "5083cb336aca9c21"
+            ]
+        ]
+    },
+    {
+        "id": "5083cb336aca9c21",
+        "type": "mqtt out",
+        "z": "1a8b0c1a9cd45fcc",
+        "name": "",
+        "topic": "esp32/output",
+        "qos": "2",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "edd3004a.11da88",
+        "x": 370,
+        "y": 240,
+        "wires": []
+    },
+    {
+        "id": "dd5b85dc4697da6e",
+        "type": "mqtt in",
+        "z": "1a8b0c1a9cd45fcc",
+        "name": "",
+        "topic": "esp32/data_Led",
+        "qos": "2",
+        "datatype": "auto",
+        "broker": "edd3004a.11da88",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "x": 140,
+        "y": 400,
+        "wires": [
+            [
+                "19c0101770f8085e"
+            ]
+        ]
+    },
+    {
+        "id": "19c0101770f8085e",
+        "type": "json",
+        "z": "1a8b0c1a9cd45fcc",
+        "name": "",
+        "property": "payload",
+        "action": "",
+        "pretty": false,
+        "x": 330,
+        "y": 400,
+        "wires": [
+            [
+                "6a7024d2e5ac3c14",
+                "1d42defb04625d33",
+                "d642649c0ff1d7b2",
+                "0cfe467a0f15ebca"
+            ]
+        ]
+    },
+    {
+        "id": "6a7024d2e5ac3c14",
+        "type": "function",
+        "z": "1a8b0c1a9cd45fcc",
+        "name": "",
+        "func": "msg.payload = msg.payload.Led0;\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 600,
+        "y": 320,
+        "wires": [
+            [
+                "c7dae2c60dc8b24f"
+            ]
+        ]
+    },
+    {
+        "id": "c7dae2c60dc8b24f",
+        "type": "ui_led",
+        "z": "1a8b0c1a9cd45fcc",
+        "order": 5,
+        "group": "f9ff6e54.b1e71",
+        "width": 0,
+        "height": 0,
+        "label": "Led0",
+        "labelPlacement": "left",
+        "labelAlignment": "left",
+        "colorForValue": [
+            {
+                "color": "#888a85",
+                "value": "false",
+                "valueType": "str"
+            },
+            {
+                "color": "#fce94f",
+                "value": "true",
+                "valueType": "str"
+            }
+        ],
+        "allowColorForValueInMessage": false,
+        "shape": "square",
+        "showGlow": true,
+        "name": "",
+        "x": 860,
+        "y": 320,
+        "wires": []
+    },
+    {
+        "id": "1d42defb04625d33",
+        "type": "function",
+        "z": "1a8b0c1a9cd45fcc",
+        "name": "",
+        "func": "msg.payload = msg.payload.Led1;\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 600,
+        "y": 400,
+        "wires": [
+            [
+                "9e51c4e1f45723fe"
+            ]
+        ]
+    },
+    {
+        "id": "d642649c0ff1d7b2",
+        "type": "function",
+        "z": "1a8b0c1a9cd45fcc",
+        "name": "",
+        "func": "msg.payload = msg.payload.Led2;\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 600,
+        "y": 480,
+        "wires": [
+            [
+                "e3e20901cfb15ffb"
+            ]
+        ]
+    },
+    {
+        "id": "0cfe467a0f15ebca",
+        "type": "function",
+        "z": "1a8b0c1a9cd45fcc",
+        "name": "",
+        "func": "msg.payload = msg.payload.Led3;\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 600,
+        "y": 560,
+        "wires": [
+            [
+                "e01de05db006e1ac"
+            ]
+        ]
+    },
+    {
+        "id": "9e51c4e1f45723fe",
+        "type": "ui_led",
+        "z": "1a8b0c1a9cd45fcc",
+        "order": 6,
+        "group": "f9ff6e54.b1e71",
+        "width": 0,
+        "height": 0,
+        "label": "Led1",
+        "labelPlacement": "left",
+        "labelAlignment": "left",
+        "colorForValue": [
+            {
+                "color": "#888a85",
+                "value": "false",
+                "valueType": "str"
+            },
+            {
+                "color": "#fce94f",
+                "value": "true",
+                "valueType": "str"
+            }
+        ],
+        "allowColorForValueInMessage": false,
+        "shape": "square",
+        "showGlow": true,
+        "name": "",
+        "x": 860,
+        "y": 400,
+        "wires": []
+    },
+    {
+        "id": "e3e20901cfb15ffb",
+        "type": "ui_led",
+        "z": "1a8b0c1a9cd45fcc",
+        "order": 7,
+        "group": "f9ff6e54.b1e71",
+        "width": 0,
+        "height": 0,
+        "label": "Led2",
+        "labelPlacement": "left",
+        "labelAlignment": "left",
+        "colorForValue": [
+            {
+                "color": "#888a85",
+                "value": "false",
+                "valueType": "str"
+            },
+            {
+                "color": "#fce94f",
+                "value": "true",
+                "valueType": "str"
+            }
+        ],
+        "allowColorForValueInMessage": false,
+        "shape": "square",
+        "showGlow": true,
+        "name": "",
+        "x": 860,
+        "y": 480,
+        "wires": []
+    },
+    {
+        "id": "e01de05db006e1ac",
+        "type": "ui_led",
+        "z": "1a8b0c1a9cd45fcc",
+        "order": 8,
+        "group": "f9ff6e54.b1e71",
+        "width": 0,
+        "height": 0,
+        "label": "Led3",
+        "labelPlacement": "left",
+        "labelAlignment": "left",
+        "colorForValue": [
+            {
+                "color": "#888a85",
+                "value": "false",
+                "valueType": "str"
+            },
+            {
+                "color": "#fce94f",
+                "value": "true",
+                "valueType": "str"
+            }
+        ],
+        "allowColorForValueInMessage": false,
+        "shape": "square",
+        "showGlow": true,
+        "name": "",
+        "x": 850,
+        "y": 560,
+        "wires": []
+    },
+    {
+        "id": "f370cfb7.9f1c18",
+        "type": "ui_group",
+        "name": "Tx",
+        "tab": "5341aebf.115e08",
+        "order": 2,
+        "disp": true,
+        "width": "6",
+        "collapse": false
+    },
+    {
+        "id": "edd3004a.11da88",
+        "type": "mqtt-broker",
+        "name": "jjaimes@3.121.120.155",
+        "broker": "3.121.120.155",
+        "port": "1883",
+        "clientid": "jjaimes",
+        "usetls": false,
+        "protocolVersion": "4",
+        "keepalive": "60",
+        "cleansession": true,
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthPayload": "",
+        "birthMsg": {},
+        "closeTopic": "",
+        "closeQos": "0",
+        "closePayload": "",
+        "closeMsg": {},
+        "willTopic": "",
+        "willQos": "0",
+        "willPayload": "",
+        "willMsg": {},
+        "sessionExpiry": ""
+    },
+    {
+        "id": "f9ff6e54.b1e71",
+        "type": "ui_group",
+        "name": "Rx",
+        "tab": "5341aebf.115e08",
+        "order": 1,
+        "disp": true,
+        "width": "6",
+        "collapse": false
+    },
+    {
+        "id": "5341aebf.115e08",
+        "type": "ui_tab",
+        "name": "Comunicación MQTT con ESP32CAM",
+        "icon": "dashboard",
+        "order": 4,
+        "disabled": false,
+        "hidden": false
+    }
+]
